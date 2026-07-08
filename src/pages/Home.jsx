@@ -19,8 +19,8 @@ export default function Home() {
   ];
 
   const categories = ['All', 'Commercial', 'Residential', 'Interior'];
-  const filteredProjects = activeTab === 'All' 
-    ? PROJECTS.slice(0, 3) 
+  const filteredProjects = activeTab === 'All'
+    ? PROJECTS.slice(0, 3)
     : PROJECTS.filter(p => p.category === activeTab).slice(0, 3);
 
   const processes = [
@@ -34,52 +34,54 @@ export default function Home() {
     <div className="bg-black text-white">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
-        {/* Background Image with Rich Dark Gradient */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=80" 
-            alt="Premium construction site background" 
-            className="w-full h-full object-cover opacity-45 scale-105"
+          <video
+            src="/Create_a_cinematic_second_.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-70 scale-100"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/10" />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full flex flex-col items-start gap-8">
-          <motion.div 
+        <div className="relative z-10 max-w-5xl mx-auto px-6 w-full flex flex-col items-center text-center gap-6 mt-12">
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col gap-4 max-w-4xl"
+            className="flex flex-col gap-4 max-w-3xl items-center"
           >
             <span className="text-xs font-bold uppercase tracking-[0.4em] text-[#C89B3C]">
               // Premium Architectural Development
             </span>
-            <h1 className="font-heading font-extrabold text-5xl md:text-7xl lg:text-8xl tracking-tight leading-none text-white">
+            <h1 className="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight text-white drop-shadow-lg">
               Building <span className="text-[#C89B3C]">Dreams</span>.<br />
               Creating Landmarks.
             </h1>
-            <p className="text-gray-400 text-sm md:text-lg max-w-2xl leading-relaxed mt-2">
+            <p className="text-gray-300 text-xs md:text-sm max-w-xl leading-relaxed mt-2 drop-shadow-md">
               Engineering iconic, multi-million dollar developments and bespoke luxury residences. We merge timeless design aesthetics with superior industrial engineering.
             </p>
           </motion.div>
 
           {/* Action buttons */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-wrap gap-4"
+            className="flex flex-wrap gap-4 justify-center"
           >
-            <Link 
-              to="/get-quote" 
+            <Link
+              to="/get-quote"
               className="bg-[#C89B3C] hover:bg-[#A67D2A] text-black font-semibold text-xs uppercase tracking-widest px-8 py-4 rounded transition-all duration-300 shadow-xl shadow-[#C89B3C]/20 hover:shadow-[#C89B3C]/40"
             >
               Start Project
             </Link>
-            <Link 
-              to="/services" 
+            <Link
+              to="/services"
               className="border border-white/20 hover:border-[#C89B3C] text-white font-semibold text-xs uppercase tracking-widest px-8 py-4 rounded transition-colors duration-300 bg-white/5 hover:bg-[#C89B3C]/10"
             >
               Explore Services
@@ -87,18 +89,18 @@ export default function Home() {
           </motion.div>
 
           {/* Floating cards / Stats preview */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="w-full grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 border-t border-white/10 pt-8"
+            className="w-full grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 border-t border-white/10 pt-6 text-center"
           >
             {stats.map((s, i) => (
-              <div key={i} className="flex flex-col">
-                <span className="font-heading font-extrabold text-3xl md:text-5xl text-[#C89B3C]">
+              <div key={i} className="flex flex-col items-center">
+                <span className="font-heading font-extrabold text-2xl md:text-4xl text-[#C89B3C]">
                   {s.value}{s.suffix}
                 </span>
-                <span className="text-xs uppercase tracking-wider text-gray-500 mt-1">
+                <span className="text-[10px] uppercase tracking-wider text-gray-400 mt-1">
                   {s.label}
                 </span>
               </div>
@@ -110,7 +112,7 @@ export default function Home() {
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500">
           <span className="text-[10px] uppercase tracking-[0.25em]">Scroll Down</span>
           <div className="w-5 h-8 border border-gray-600 rounded-full flex justify-center p-1">
-            <motion.div 
+            <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
               className="w-1 h-2 bg-[#C89B3C] rounded-full"
@@ -149,29 +151,29 @@ export default function Home() {
               </div>
             </div>
             <div className="pt-4">
-              <Link 
-                to="/about" 
+              <Link
+                to="/about"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-[#C89B3C] hover:underline"
               >
                 Learn More About Us <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
-          
+
           {/* Image Collage Grid */}
           <div className="grid grid-cols-12 gap-4 h-[450px] md:h-[500px]">
             <div className="col-span-8 h-full rounded-xl overflow-hidden relative">
-              <img 
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" 
-                alt="Architecture planning" 
+              <img
+                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80"
+                alt="Architecture planning"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
             <div className="col-span-4 flex flex-col gap-4 h-full">
               <div className="h-1/2 rounded-xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80" 
-                  alt="Luxury home finish" 
+                <img
+                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80"
+                  alt="Luxury home finish"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -187,22 +189,22 @@ export default function Home() {
       {/* Services Showcase */}
       <section className="py-24 bg-black border-t border-[#C89B3C]/10">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeader 
-            badge="Luxury Services" 
-            title="Premium Construction Offerings" 
+          <SectionHeader
+            badge="Luxury Services"
+            title="Premium Construction Offerings"
             subtitle="Explore our comprehensive engineering, architectural, and turnkey development specialties."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {SERVICES.slice(0, 6).map((service) => (
-              <div 
-                key={service.id} 
+              <div
+                key={service.id}
                 className="group bg-[#111111] border border-white/5 hover:border-[#C89B3C]/50 rounded-xl overflow-hidden transition-all duration-500 shadow-xl"
               >
                 <div className="h-56 overflow-hidden relative">
-                  <img 
-                    src={service.image} 
-                    alt={service.title} 
+                  <img
+                    src={service.image}
+                    alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111111] to-transparent opacity-80" />
@@ -217,8 +219,8 @@ export default function Home() {
                   <p className="text-gray-400 text-xs leading-relaxed line-clamp-2">
                     {service.shortDesc}
                   </p>
-                  <Link 
-                    to={`/services/${service.id}`} 
+                  <Link
+                    to={`/services/${service.id}`}
                     className="inline-flex items-center gap-1 text-xs font-semibold text-[#C89B3C] hover:underline pt-2 w-max"
                   >
                     Read Details <ArrowUpRight className="w-3.5 h-3.5" />
@@ -229,8 +231,8 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Link 
-              to="/services" 
+            <Link
+              to="/services"
               className="inline-flex items-center justify-center gap-2 border border-[#C89B3C]/30 text-white hover:text-black hover:bg-[#C89B3C] px-8 py-3.5 rounded transition-all duration-300 text-xs font-semibold uppercase tracking-widest"
             >
               View All Services
@@ -251,18 +253,17 @@ export default function Home() {
                 Featured Developments
               </h2>
             </div>
-            
+
             {/* Category Filter Tabs */}
             <div className="flex flex-wrap gap-2">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveTab(cat)}
-                  className={`px-4 py-2 text-xs font-bold uppercase tracking-widest rounded transition-all duration-300 ${
-                    activeTab === cat 
-                      ? 'bg-[#C89B3C] text-black shadow-lg shadow-[#C89B3C]/20' 
-                      : 'border border-white/10 text-gray-400 hover:text-white hover:bg-white/5'
-                  }`}
+                  className={`px-4 py-2 text-xs font-bold uppercase tracking-widest rounded transition-all duration-300 ${activeTab === cat
+                    ? 'bg-[#C89B3C] text-black shadow-lg shadow-[#C89B3C]/20'
+                    : 'border border-white/10 text-gray-400 hover:text-white hover:bg-white/5'
+                    }`}
                 >
                   {cat}
                 </button>
@@ -272,17 +273,17 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((p) => (
-              <div 
-                key={p.id} 
+              <div
+                key={p.id}
                 className="group relative h-[450px] rounded-xl overflow-hidden border border-white/5 hover:border-[#C89B3C]/30 transition-all duration-500 shadow-2xl"
               >
-                <img 
-                  src={p.image} 
-                  alt={p.title} 
+                <img
+                  src={p.image}
+                  alt={p.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
-                
+
                 <div className="absolute inset-x-6 bottom-6 flex flex-col gap-3">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-[#C89B3C]">
                     {p.category}
@@ -297,8 +298,8 @@ export default function Home() {
                     <span className="text-[10px] uppercase text-gray-500 font-medium">
                       Location: {p.location}
                     </span>
-                    <Link 
-                      to={`/projects/${p.id}`} 
+                    <Link
+                      to={`/projects/${p.id}`}
                       className="text-xs font-bold text-white group-hover:text-[#C89B3C] flex items-center gap-1 hover:underline"
                     >
                       View Project <ArrowUpRight className="w-3.5 h-3.5" />
@@ -310,8 +311,8 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Link 
-              to="/projects" 
+            <Link
+              to="/projects"
               className="inline-flex items-center justify-center gap-2 border border-[#C89B3C]/30 text-white hover:text-black hover:bg-[#C89B3C] px-8 py-3.5 rounded transition-all duration-300 text-xs font-semibold uppercase tracking-widest"
             >
               Explore Full Portfolio
@@ -323,16 +324,16 @@ export default function Home() {
       {/* Building Process Timeline */}
       <section className="py-24 bg-black">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeader 
-            badge="Project Lifecycle" 
-            title="Our Construction Philosophy" 
+          <SectionHeader
+            badge="Project Lifecycle"
+            title="Our Construction Philosophy"
             subtitle="A detailed look at the seamless, transparent journey from blueprints to turnkey handover."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
             {processes.map((proc, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="relative bg-[#111111] border border-white/5 p-8 rounded-xl flex flex-col gap-4 shadow-xl hover:border-[#C89B3C]/30 transition-colors"
               >
                 <div className="font-heading font-black text-5xl text-[#C89B3C]/20 group-hover:text-[#C89B3C] transition-colors">
@@ -353,16 +354,16 @@ export default function Home() {
       {/* Testimonials */}
       <section className="py-24 bg-[#111111] border-t border-[#C89B3C]/10">
         <div className="max-w-7xl mx-auto px-6">
-          <SectionHeader 
-            badge="Client Endorsements" 
-            title="Trusted By Industry Leaders" 
+          <SectionHeader
+            badge="Client Endorsements"
+            title="Trusted By Industry Leaders"
             subtitle="Hear what major real estate owners and commercial directors say about partnering with Builders Crew."
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {TESTIMONIALS.map((t, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="bg-black border border-white/5 p-8 rounded-xl flex flex-col gap-6 shadow-xl"
               >
                 <div className="flex gap-1 text-[#C89B3C]">
@@ -374,9 +375,9 @@ export default function Home() {
                   "{t.quote}"
                 </p>
                 <div className="flex items-center gap-4 pt-4 border-t border-white/5">
-                  <img 
-                    src={t.image} 
-                    alt={t.author} 
+                  <img
+                    src={t.image}
+                    alt={t.author}
                     className="w-12 h-12 rounded-full object-cover border border-[#C89B3C]"
                   />
                   <div>
@@ -404,14 +405,14 @@ export default function Home() {
             Partner with our certified engineering consulting group and premium planners. Request a free custom consultation, and let's craft a landmark together.
           </p>
           <div className="flex flex-wrap gap-4 justify-center mt-4">
-            <Link 
-              to="/get-quote" 
+            <Link
+              to="/get-quote"
               className="bg-[#C89B3C] hover:bg-[#A67D2A] text-black font-semibold text-xs uppercase tracking-widest px-8 py-4 rounded transition-all duration-300 shadow-xl shadow-[#C89B3C]/20"
             >
               Get Free Consultation
             </Link>
-            <a 
-              href="tel:0321-4858075" 
+            <a
+              href="tel:0321-4858075"
               className="border border-white/20 hover:border-[#C89B3C] text-white font-semibold text-xs uppercase tracking-widest px-8 py-4 rounded transition-colors duration-300 bg-white/5"
             >
               Call Now
