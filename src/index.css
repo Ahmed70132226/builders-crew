@@ -5,12 +5,12 @@
   --color-primary: #C89B3C;
   --color-primary-dark: #A67D2A;
   --color-primary-light: #DFBA6B;
-  --color-bg-dark: #111111;
-  --color-text-dark: #333333;
-  --color-text-light: #777777;
-  --color-bg-light: #FFFFFF;
-  --color-bg-secondary: #F8F8F8;
-  --color-border-custom: #ECECEC;
+  --color-bg-dark: #0A0A0A;
+  --color-text-dark: #F3F4F6;
+  --color-text-light: #9CA3AF;
+  --color-bg-light: #0D0D0D;
+  --color-bg-secondary: #121212;
+  --color-border-custom: rgba(200, 155, 60, 0.15);
   
   --font-sans: 'Inter', sans-serif;
   --font-heading: 'Plus Jakarta Sans', sans-serif;
@@ -39,7 +39,7 @@ html.lenis {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-bg-light);
+  background-color: var(--color-bg-dark);
   color: var(--color-text-dark);
   overflow-x: hidden;
 }
@@ -49,7 +49,7 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #111111;
+  background: #080808;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-primary);
@@ -61,15 +61,15 @@ body {
 
 /* Glassmorphism custom components */
 .glass-panel {
-  background: rgba(17, 17, 17, 0.75);
+  background: rgba(10, 10, 10, 0.7);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(200, 155, 60, 0.2);
+  border: 1px solid rgba(200, 155, 60, 0.12);
 }
 
 .glass-panel-light {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(200, 155, 60, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Custom transitions and scroll indicators */
@@ -79,3 +79,93 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* Blueprint Grid Styles */
+.blueprint-grid-overlay {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(200, 155, 60, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 155, 60, 0.03) 1px, transparent 1px);
+  pointer-events: none;
+}
+
+.blueprint-grid-fine {
+  background-size: 8px 8px;
+  background-image: 
+    linear-gradient(to right, rgba(200, 155, 60, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 155, 60, 0.015) 1px, transparent 1px);
+  pointer-events: none;
+}
+
+/* Preloading/Loading effects */
+@keyframes drawSVG {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.draw-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawSVG 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-cursor-dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 10000;
+}
+
+/* Hover effects for cursor */
+.cursor-hovering .custom-cursor {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(200, 155, 60, 0.1);
+  border-color: var(--color-primary-light);
+}
+
+.cursor-hovering-image .custom-cursor {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  mix-blend-mode: difference;
+}
+
+/* Custom animations */
+@keyframes floatCrane {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(0.5deg); }
+}
+
+.animate-float-crane {
+  animation: floatCrane 8s ease-in-out infinite;
+}
+
+@keyframes slowRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-slow-rotate {
+  animation: slowRotate 25s linear infinite;
+}
+

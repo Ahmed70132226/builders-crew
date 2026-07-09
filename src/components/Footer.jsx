@@ -9,8 +9,32 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black border-t border-[#C89B3C]/20 pt-20 pb-10 text-gray-400">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <footer className="bg-black border-t border-[#C89B3C]/20 pt-24 pb-10 text-gray-400 relative overflow-hidden">
+      
+      {/* Animated Skyline Background Overlay in Footer */}
+      <div className="absolute top-0 inset-x-0 h-28 pointer-events-none select-none overflow-hidden opacity-10">
+        <svg
+          className="absolute bottom-0 w-full h-24 text-[#C89B3C]"
+          viewBox="0 0 1200 100"
+          preserveAspectRatio="none"
+          fill="currentColor"
+        >
+          {/* Skyline outline */}
+          <path d="M 0,100 L 0,80 L 30,80 L 30,50 L 80,50 L 80,100 L 120,100 L 120,70 L 180,70 L 180,30 L 230,30 L 230,100 L 350,100 L 350,40 L 420,40 L 420,100 L 500,100 L 500,60 L 550,60 L 550,100 L 700,100 L 700,20 L 780,20 L 780,100 L 850,100 L 850,65 L 920,65 L 920,100 L 1050,100 L 1050,45 L 1120,45 L 1120,100 L 1200,100 Z" />
+          
+          {/* Mini Cranes */}
+          <g className="animate-float-crane transform origin-bottom" style={{ transformOrigin: '740px 100px' }}>
+            <line x1="740" y1="100" x2="740" y2="40" stroke="currentColor" strokeWidth="1" />
+            <line x1="740" y1="45" x2="790" y2="42" stroke="currentColor" strokeWidth="0.8" />
+          </g>
+          <g className="animate-float-crane transform origin-bottom" style={{ transformOrigin: '200px 100px' }}>
+            <line x1="200" y1="100" x2="200" y2="50" stroke="currentColor" strokeWidth="1" />
+            <line x1="200" y1="55" x2="250" y2="52" stroke="currentColor" strokeWidth="0.8" />
+          </g>
+        </svg>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 relative z-10">
         {/* Brand Column */}
         <div className="flex flex-col gap-6">
           <Link to="/" className="flex flex-col items-start">

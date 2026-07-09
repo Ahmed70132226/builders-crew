@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SmoothScroll from './components/SmoothScroll';
+import Preloader from './components/Preloader';
 
 // Pages
 import Home from './pages/Home';
@@ -36,37 +37,43 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
-    <Router>
-      <ScrollToTop />
-      <SmoothScroll>
-        <div className="flex flex-col min-h-screen bg-black text-white">
-          <Navbar />
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/services/:id" element={<ServiceDetails />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/projects/:id" element={<ProjectDetails />} />
-              <Route path="/properties" element={<Properties />} />
-              <Route path="/properties/:id" element={<PropertyDetails />} />
-              <Route path="/architecture" element={<Architecture />} />
-              <Route path="/interior-design" element={<InteriorDesign />} />
-              <Route path="/renovation" element={<Renovation />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:id" element={<BlogDetails />} />
-              <Route path="/faq" element={<FAQ />} />
-              <Route path="/testimonials" element={<Testimonials />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/get-quote" element={<GetQuote />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </SmoothScroll>
-    </Router>
+    <>
+      {loading && <Preloader onComplete={() => setLoading(false)} />}
+      <Router>
+        <ScrollToTop />
+        <SmoothScroll>
+          <div className="flex flex-col min-h-screen bg-black text-white">
+            <Navbar />
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/services/:id" element={<ServiceDetails />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/projects/:id" element={<ProjectDetails />} />
+                <Route path="/properties" element={<Properties />} />
+                <Route path="/properties/:id" element={<PropertyDetails />} />
+                <Route path="/architecture" element={<Architecture />} />
+                <Route path="/interior-design" element={<InteriorDesign />} />
+                <Route path="/renovation" element={<Renovation />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:id" element={<BlogDetails />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/testimonials" element={<Testimonials />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/get-quote" element={<GetQuote />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </SmoothScroll>
+      </Router>
+    </>
   );
 }
+
